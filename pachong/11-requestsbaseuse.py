@@ -13,8 +13,8 @@ def requests_base_use():
     params = {}
     response = requests.get(url, params=params, headers=headers)
 
-    print type(response.text) # unicode
-    print type(response.content) # str
+    print(type(response.text)) # unicode
+    print(type(response.content)) # str
 
     # 2.post
     formdata = {}

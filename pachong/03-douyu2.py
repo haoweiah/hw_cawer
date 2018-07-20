@@ -4,6 +4,7 @@
 
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import time
 
 
 class Douyu_Spider(object):
@@ -35,16 +36,40 @@ class Douyu_Spider(object):
         hot_list = ul_element.select('.dy-num')
 
         for room, name, hot in zip(room_list, name_list, hot_list):
-            print room.get_text().strip()
-            print name.get_text()
-            print hot.get_text()
+            print(room.get_text().strip())
+            print(name.get_text())
+            print(hot.get_text())
             self.count += 1
+
+        return soup
 
     def start_work(self):
         data = self.send_reqeust()
-        self.analysis_data(data)
+        soup = self.analysis_data(data)
 
-        print self.count
+        while True:
+
+            # 延迟 3秒钟 保证浏览器 渲染完毕
+            time.sleep(3)
+
+            # 判断 下一页 不能点击的 属性 在不在
+            if data.find('shark-pager-disable-next') != -1:
+                break
+
+            # 1.获取 下一页的 按钮
+            next_element = self.driver.find_element_by_class_name("shark-pager-next")
+
+            # 2.click
+            next_element.click()
+
+            data = self.driver.page_source
+            self.analysis_data(data)
+
+        print(self.count)
+
+        # 关闭浏览器
+        self.driver.quit()
+
 
         # list1 = ["a", "b", "c"]
         # list2 = ["A", "B", "C"]

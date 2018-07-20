@@ -2,9 +2,8 @@
 # _*_ coding:utf-8 _*_
 
 
-import urllib2
-import urllib
-import cookielib
+import urllib.request
+import
 
 
 def cookjar_handler():
@@ -12,7 +11,7 @@ def cookjar_handler():
     cookjar = cookielib.CookieJar()
 
     # 2. 创建有cookie功能的处理器
-    handler = urllib2.HTTPCookieProcessor(cookjar)
+    handler = urllib.request.HTTPCookieProcessor(cookjar)
 
     # 3. 根据处理器 生成openner
     openner = urllib2.build_opener(handler)
@@ -44,8 +43,8 @@ def cookjar_handler():
         with open('07renren.html', 'w') as f:
             f.write(data)
 
-    except Exception,err:
-        print err
+    except Exception as err:
+        print(err)
 
 
 
