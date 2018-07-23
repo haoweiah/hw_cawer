@@ -25,26 +25,36 @@ class ProjectacrnPullRequest(object):
         else:
             print(response.status_code, 'merge fail')
 
-    def projectcarn_merge(self):
+    def post_comments(self, url):
+        # 填写pullRequest评论
+
+        body = "代码评论测试"
+        response = requests.post(url, auth=('hw121298@163.com', '!QAZ2wsx'), json={'body': body,
+                                                                                   })
+        return response.status_code
+
+    def projectcarn_merge_rebase(self):
         # 解析json数据
         pulls_json = self.acrn_pulls_info(self.url)
-        with open('pull_json.json', 'w') as f:
-            f.write(json.dumps(pulls_json))
+        # with open('pull_json.json', 'w') as f:
+        #     f.write(json.dumps(pulls_json))
         merge_url = pulls_json[0]['base']['repo']['merges_url']
 
         for i in range(0, len(pulls_json)):
             head = pulls_json[i]['head']['sha']
             base = pulls_json[i]['base']['ref']
-            num = pulls_json[i]['number']
+            comment_url = pulls_json[i]['comments_url']
             statuses_url = pulls_json[i]['statuses_url']
-            review_url = self.base_url + 'pulls/%s/reviews' % num
+            review_url = pulls_json[i]['url'] + '/reviews'
             review_json = self.acrn_pulls_info(review_url)
-            check_json = self.acrn_pulls_info(statuses_url)
             if len(review_json) != 0 and review_json[0].get('state') == "APPROVED":
-                print(str(num) + '\n' + head + '\n' + base)
+                check_json = self.acrn_pulls_info(statuses_url)
+                if check_json[0]['state'] == 'success':
+
+                    print('\n' + head + '\n' + base)
 
 
 if __name__ == '__main__':
     projectacrn_pullrequest = ProjectacrnPullRequest('hw121298@163.com', '!QAZ2wsx')
     projectacrn_pullrequest.url = projectacrn_pullrequest.base_url + 'pulls'
-    projectacrn_pullrequest.projectcarn_merge()
+    projectacrn_pullrequest.projectcarn_merge_rebase()

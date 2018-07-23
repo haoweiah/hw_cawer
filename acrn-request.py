@@ -64,7 +64,6 @@ def merge_put_request_method(merge_url, head):
                             json={
                                 "sha": head,
                                 "merge_method": "rebase",
-
                             }
                             )
     if response.status_code == 200:
@@ -72,20 +71,50 @@ def merge_put_request_method(merge_url, head):
     return response.status_code
 
 
+def get_comments(url):
+    response = requests.get(url)
+    print(response.text)
+    with open('jianlai_comments.json', 'w') as f:
+        f.write(response.text)
+    print(response.status_code)
+
+
+def get_commit(url):
+    response = requests.get(url)
+    with open('jianlai_commit.json', 'w') as f:
+        f.write(response.text)
+
+
+def post_comments(url):
+    body = "代码评论测试"
+
+    response = requests.post(url, auth=('hw121298@163.com', '!QAZ2wsx'), json={'body': body,
+                                                         })
+    print(response.text)
+
+
 def jianlaipinan_acrn_request():
     # 解析json数据
-    pulls_data = json.loads(carn_pulls_info())
-    with open('jianlai.json','w') as f:
-        f.write(json.dumps(pulls_data))
+    pulls_data = carn_pulls_info()
+    with open('jianlai.json', 'w') as f:
+        f.write(pulls_data)
+    pulls_data = json.loads(pulls_data)
     for i in range(0, len(pulls_data)):
         url = pulls_data[i]['url'] + '/merge'
+        num = pulls_data[i]['number']
+        sha = pulls_data[i]['head']['sha']
+        review_url = pulls_data[i]['review_comment_url'].replace("{/number}", "/%s" % num)
+        commit_url = pulls_data[i]['commits_url']
+        comment_url = pulls_data[i]['comments_url']
+        # get_comments(comment_url)
+        print(comment_url)
+        post_comments(comment_url)
         # merge_url = pulls_data[i]['base']['repo']['merges_url']
-        head = pulls_data[i]['head']['sha']
-        base = pulls_data[i]['base']['ref']
 
-        print(url + '\n' + head + '\n' + base)
-        status_code = merge_put_request_method(url, head)
-        print(status_code)
+        base = pulls_data[i]['base']['ref']
+        # print(url + '\n' + head + '\n' + base)
+        # status_code = merge_put_request_method(url, head)
+        # print(status_code)
 
 
 if __name__ == '__main__':
