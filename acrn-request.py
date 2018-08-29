@@ -18,6 +18,8 @@ base_url = 'https://api.github.com'
 username = 'hw121298@163.com'
 userpwd = '!QAZ2wsx'
 
+s = requests.Session()
+s.auth=(username, userpwd)
 
 def build_uri(endpoint):
     # 构建url
@@ -31,12 +33,12 @@ def better_print(json_str):
 
 def carn_pulls_info():
     # 获取所有的pulls
-    response = requests.get(build_uri('repos/jianlaipinan/carn/pulls'))
+    response = s.get(build_uri('repos/jianlaipinan/carn/pulls'))
     return response.text
 
 
 def json_request():
-    response = requests.patch(build_uri('user'), auth=('hw121298@163.com', '!QAZ2wsx'), json={'bio': 'this is a test'})
+    response = s.patch(build_uri('user'), auth=('hw121298@163.com', '!QAZ2wsx'), json={'bio': 'this is a test'})
     print(better_print(response.text))
     print(response.request.headers)
     print(response.request.body)
@@ -45,7 +47,7 @@ def json_request():
 
 def merge_post_request_method(merge_url, head):
     # merge 当前分支到主分支
-    response = requests.put(merge_url, auth=(username, userpwd),
+    response = s.put(merge_url, auth=(username, userpwd),
                             json={"commit_title": "this is commit test",
                                   "commit_message": "this is add commit test",
                                   "sha": head,
@@ -60,19 +62,16 @@ def merge_put_request_method(merge_url, head):
     headers = {"Authorization": "token 4ea84e0fe94fff027bdb78c949d0897b911b8b8e",
                "Accept": "application/vnd.github.polaris-preview"
                }
-    response = requests.put(merge_url, headers=headers,
+    response = s.put(merge_url, headers=headers,
                             json={
                                 "sha": head,
                                 "merge_method": "rebase",
-                            }
-                            )
-    if response.status_code == 200:
-        print(response.text)
-    return response.status_code
+                            })
+    return response.text
 
 
 def get_comments(url):
-    response = requests.get(url)
+    response = s.get(url)
     print(response.text)
     with open('jianlai_comments.json', 'w') as f:
         f.write(response.text)
@@ -80,17 +79,16 @@ def get_comments(url):
 
 
 def get_commit(url):
-    response = requests.get(url)
+    response = s.get(url)
     with open('jianlai_commit.json', 'w') as f:
         f.write(response.text)
 
 
 def post_comments(url):
-    body = "代码评论测试"
+    body = "代码评论测试2"
 
-    response = requests.post(url, auth=('hw121298@163.com', '!QAZ2wsx'), json={'body': body,
-                                                         })
-    print(response.text)
+    response = s.post(url, json={'body': body})
+    return response.status_code
 
 
 def jianlaipinan_acrn_request():
@@ -107,16 +105,19 @@ def jianlaipinan_acrn_request():
         commit_url = pulls_data[i]['commits_url']
         comment_url = pulls_data[i]['comments_url']
         # get_comments(comment_url)
-        print(comment_url)
-        post_comments(comment_url)
+        # print(comment_url)
+        status_code = post_comments(comment_url)
+        print(type(status_code))
+        print(status_code)
+        body = "成功" if status_code == 201 else "失败"
+        print(body)
         # merge_url = pulls_data[i]['base']['repo']['merges_url']
 
-        base = pulls_data[i]['base']['ref']
+        # base = pulls_data[i]['base']['ref']
         # print(url + '\n' + head + '\n' + base)
-        # status_code = merge_put_request_method(url, head)
-        # print(status_code)
+        # responsetext = merge_put_request_method(url, sha)
+        # print(responsetext)
 
 
 if __name__ == '__main__':
     jianlaipinan_acrn_request()
-    # json_request()
