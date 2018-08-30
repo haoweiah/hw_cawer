@@ -18,3 +18,7 @@ Tue, 28 Aug 2018 09:28:32 acrn_request.py[line:104] INFO read_num_list [1099, 11
 Tue, 28 Aug 2018 12:16:31 acrn_request.py[line:104] INFO merge_num_list [1099, 1100, 1103, 1106]
 Tue, 28 Aug 2018 12:16:31 acrn_request.py[line:105] INFO read_num_list [1099, 1100, 1103, 1104, 1106]
 Tue, 28 Aug 2018 12:16:31 acrn_request.py[line:107] INFO 可以rebase编号：[1099, 1100, 1103, 1106]
+Wed, 29 Aug 2018 11:09:54 acrn_request.py[line:116] INFO merge_num_list [1099, 1100]
+Wed, 29 Aug 2018 11:09:54 acrn_request.py[line:117] INFO read_num_list [1099, 1100, 1103, 1106]
+Wed, 29 Aug 2018 11:09:54 acrn_request.py[line:120] INFO 可以rebase编号：[1099, 1100]
+Wed, 29 Aug 2018 11:09:55 acrn_request.py[line:47] INFO send suess
