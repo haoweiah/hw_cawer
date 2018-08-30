@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86d67dd9-698a-4423-aeee-e5f535dd9c9a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/myrequest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysmail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acrn-request.py" beforeDir="false" afterPath="$PROJECT_DIR$/acrn-request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acrn_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/acrn_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jianlai.json" beforeDir="false" afterPath="$PROJECT_DIR$/jianlai.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jianlai_comments.json" beforeDir="false" afterPath="$PROJECT_DIR$/jianlai_comments.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jianlai_commit.json" beforeDir="false" afterPath="$PROJECT_DIR$/jianlai_commit.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,10 +17,28 @@
       <file leaf-file-name="acrn_request.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acrn_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+            <state relative-caret-position="99">
+              <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pulls.json" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/pulls.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="79" column="16" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="16" />
+              <folding>
+                <element signature="e#651#1720#0" />
+                <element signature="e#2066#3161#0" />
+                <element signature="e#3224#3500#0" />
+                <element signature="e#20313#39695#0" />
+                <element signature="e#39699#58415#0" />
+                <element signature="e#58419#77768#0" />
+                <element signature="e#77772#97022#0" />
               </folding>
             </state>
           </provider>
@@ -46,23 +57,9 @@
         <entry file="file://$PROJECT_DIR$/num_dict.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="368" selection-start-column="368" selection-end-column="368" />
+              <caret column="184" selection-start-column="184" selection-end-column="184" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="acrn_pulls.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/acrn_pulls.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4056">
-              <caret column="169596" selection-start-column="169596" selection-end-column="169596" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pulls.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pulls.json">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="acrn-request.py" pinned="false" current-in-tab="false">
@@ -80,8 +77,11 @@
       <file leaf-file-name="myrequest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myrequest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            <state relative-caret-position="120">
+              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +104,6 @@
       <find>update</find>
       <find>commit_</find>
       <find>commit_t</find>
-      <find>message</find>
       <find>path</find>
       <find>url</find>
       <find>issues</find>
@@ -117,6 +116,7 @@
       <find>number</find>
       <find>base_url</find>
       <find>passwd</find>
+      <find>message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,9 +156,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="75" />
-    <option name="y" value="-4" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="646" />
+    <option name="y" value="154" />
     <option name="width" value="928" />
     <option name="height" value="1048" />
   </component>
@@ -176,11 +176,6 @@
             <path>
               <item name="hw_cawer" type="b2602c69:ProjectViewProjectNode" />
               <item name="hw_cawer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hw_cawer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hw_cawer" type="462c0819:PsiDirectoryNode" />
-              <item name="check" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,7 +260,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="my_selenium" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="myrequest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hw_cawer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -277,7 +272,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/my_selenium.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myrequest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -302,19 +297,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.my_selenium" />
       <item itemvalue="Python.carn_request" />
       <item itemvalue="Python.acrn-request" />
       <item itemvalue="Python.acrn_request" />
       <item itemvalue="Python.mysmail" />
+      <item itemvalue="Python.myrequest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.acrn_request" />
+        <item itemvalue="Python.myrequest" />
         <item itemvalue="Python.mysmail" />
         <item itemvalue="Python.acrn-request" />
         <item itemvalue="Python.carn_request" />
-        <item itemvalue="Python.my_selenium" />
       </list>
     </recent_temporary>
   </component>
@@ -329,6 +324,14 @@
       <option name="presentableId" value="Default" />
       <updated>1531463479179</updated>
     </task>
+    <task id="LOCAL-00001" summary="删除了很多文件">
+      <created>1535597260691</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1535597260691</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -341,15 +344,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2718232" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.27128822" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988358" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843652" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.33774835" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30162162" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.33633295" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.08604407" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.35027623" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32843652" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -360,7 +364,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289183" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -385,17 +388,16 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="删除了很多文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除了很多文件" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pachong/0-tieba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pachong/01-doubanmovielist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216" />
@@ -526,13 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my_selenium.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/review_json" />
     <entry file="file://$PROJECT_DIR$/carn_request.py" />
     <entry file="file://$PROJECT_DIR$/pull_json.json">
@@ -550,24 +545,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pulls_json.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3432">
-          <caret column="143509" selection-start-column="143509" selection-end-column="143509" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/check.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-681">
           <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/check/check4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4155" selection-start-column="4155" selection-end-column="4155" />
         </state>
       </provider>
     </entry>
@@ -578,22 +559,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jianlai_commit.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jianlai.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
           <caret column="14198" selection-start-column="14198" selection-end-column="14198" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pulls.json">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/review.json" />
     <entry file="file://$PROJECT_DIR$/mysmail.py">
@@ -610,36 +581,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acrn_pulls.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4056">
-          <caret column="169596" selection-start-column="169596" selection-end-column="169596" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/num_list.txt" />
     <entry file="file://$PROJECT_DIR$/log.txt" />
-    <entry file="file://$PROJECT_DIR$/myapp.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/num_dict.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="368" selection-start-column="368" selection-end-column="368" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myrequest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acrn-request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2544">
@@ -650,10 +593,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pulls.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/pulls.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="79" column="16" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="16" />
+          <folding>
+            <element signature="e#651#1720#0" />
+            <element signature="e#2066#3161#0" />
+            <element signature="e#3224#3500#0" />
+            <element signature="e#20313#39695#0" />
+            <element signature="e#39699#58415#0" />
+            <element signature="e#58419#77768#0" />
+            <element signature="e#77772#97022#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jianlai_commit.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acrn_pulls.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret column="169596" selection-start-column="169596" selection-end-column="169596" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pulls_json.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret column="143509" selection-start-column="143509" selection-end-column="143509" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/num_dict.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="184" selection-start-column="184" selection-end-column="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myrequest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_selenium.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check/check4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4155" selection-start-column="4155" selection-end-column="4155" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/acrn_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+        <state relative-caret-position="99">
+          <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>
