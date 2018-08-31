@@ -4,8 +4,8 @@ import smtplib
 
 from email.mime.text import MIMEText
 
-sender = 'weix.hao@intel.com'
-receivers = ['jinxiax.li@intel.com', 'wenling.zhang@intel.com']
+sender = 'Integration_auto_merge@intel.com'
+receivers = ['weix.hao@intel.com']
 subject = 'outlooktest'
 content = 'code send email test'
 msg = MIMEText(content, 'plain', 'utf-8')

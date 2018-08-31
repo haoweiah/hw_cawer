@@ -33,9 +33,12 @@ class ProjectacrnPullRequest(object):
 
     def send_email(self, subject, content, mail=[]):
         # Send a reminder email
-        sender = 'weix.hao@intel.com'
-        receivers = ['jinxiax.li@intel.com', 'wenling.zhang@intel.com', 'nanlin.xie@intel.com'] + mail
+        # 发送邮件
+        sender = 'Integration_auto_merge@intel.com'  # 邮件发送人可以为一个虚拟的邮箱（需要加后缀@...com）
+        receivers = ['weix.hao@intel.com', 'jinxiax.li@intel.com', 'wenling.zhang@intel.com',
+                     'nanlin.xie@intel.com'] + mail
         msg = MIMEText(content, 'plain', 'utf-8')
+
         msg['Subject'] = subject
         msg['From'] = sender
         msg['TO'] = ','.join(receivers)
@@ -79,7 +82,21 @@ class ProjectacrnPullRequest(object):
         with open('num_dict.json', 'w') as f:
             f.write(str(num_list))
 
-    def checkon(self, num, commit_url):
+    def determine_doc(self, num):
+        url = 'https://api.github.com/repos/projectacrn/acrn-hypervisor/pulls/%s/files' % num
+        try:
+            file_list = self.acrn_url_info(url)
+            for file in file_list:
+                file_type = file['filename'].split('/', 1)[0]
+                if file_type != 'doc':
+                    return True
+        except Exception as e:
+            logging.info(e)
+        else:
+            return False
+
+    def TrackenOn(self, num, commit_url, html_url):
+
         try:
             message = self.acrn_url_info(commit_url)[0]['commit']['message']
             list = re.findall(r'Tracked-On: #(\d+)', message)
@@ -90,14 +107,14 @@ class ProjectacrnPullRequest(object):
         if not list:
             if not mail:
                 logging.info('未找到mail 邮件发给谁')
-                subject = 'PR %d 未找到mail联系人' % num
-                content = 'PR %d 未找到mail联系人， Tracked-On信息未填写' % num
+                subject = 'Tracked-on information was not found for PR %d' % num
+                content = 'No contact found for PR %d, No Tracken-On information, link:%s ' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content)
             else:
                 logging.info('找到mail发邮件', mail)
-                subject = 'PR %d 未填写Tracked-On信息' % num
-                content = 'PR %d 未填写Tracken-On信息' % num
+                subject = 'Not PR %d found Tracken-On information' % num
+                content = 'Not PR %d found Tracken-On information link: %s' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content, mail)
             return False
@@ -113,14 +130,16 @@ class ProjectacrnPullRequest(object):
                 list = re.findall(r'\[External_System_ID\]', ID)
             if not list:
                 logging.info('未找到ID发邮件 需要发送给5个人', mail)
-                subject = 'issues 问题'
-                content = 'PR {} 的issues {} 没有 External_System_ID '.format(num, issues_num)
+                subject = 'git issues'
+                content = 'PR{}`s issues {} External_System_ID was not found in the issues of PR link: %s'.format(num,
+                                                                                                                  issues_num,
+                                                                                                                  html_url)
                 self.send_email(subject, content)
                 return False
         except Exception as e:
             logging.info('issuers链接错误发邮件 需要发送给5个人', mail)
-            subject = 'issues的连接错误，可能是Tracken-On信息错误'
-            content = 'issues的连接错误，可能是Tracken-On信息错误'
+            subject = 'issues link error'
+            content = 'issues link error %s, maybe Tracken-On infomation error' % issues_url
             self.send_email(subject, content)
             return False
         logging.info('checkon OK')
@@ -137,21 +156,22 @@ class ProjectacrnPullRequest(object):
             base = pulls_json[i]['base']['ref']
             num = pulls_json[i]['number']
             commits_url = pulls_json[i]['commits_url']
-            # print(num)
-            self.checkon(num, commits_url)
             num_url = pulls_json[i]['url']
             num = pulls_json[i]['number']
             comment_url = pulls_json[i]['comments_url']
             statuses_url = pulls_json[i]['statuses_url']
             review_url = pulls_json[i]['url'] + '/reviews'
+            html_url = pulls_json[i]['html_url']
             review_json = self.acrn_url_info(review_url)
-            for review in review_json:
-                user = review["user"]["login"]
-                if review.get('state') == "APPROVED" and (user == "anthonyzxu" or user == "dongyaozu"):
-                    check_json = self.acrn_url_info(statuses_url)
-                    if check_json[0]['state'] == 'success':
-                        merge_num_dict[num] = [0, comment_url]
-                        send_num_dict[num] = num_url
+            if self.determine_doc(num):
+                self.TrackenOn(num, commits_url, html_url)
+                for review in review_json:
+                    user = review["user"]["login"]
+                    if review.get('state') == "APPROVED" and (user == "anthonyzxu" or user == "dongyaozu"):
+                        check_json = self.acrn_url_info(statuses_url)
+                        if check_json[0]['state'] == 'success':
+                            merge_num_dict[num] = [0, comment_url]
+                            send_num_dict[num] = num_url
 
         merge_num_list = sorted([key for key in merge_num_dict.keys()])
         read_num_list = sorted([key for key in read_num_dict.keys()])
@@ -160,7 +180,9 @@ class ProjectacrnPullRequest(object):
         if not operator.eq(read_num_list, merge_num_list):
             # 使用operator判断两个列表是否相同
             logging.info("可以rebase编号：%s" % merge_num_list)
-            self.send_email(json.dumps(send_num_dict))
+            subject = 'need rebase Pull request'
+            content = 'PR need rebase list %s ' % json.dumps(merge_num_dict)
+            self.send_email(subject, content)
             for num, list in merge_num_dict.items():
                 if num in read_num_list:
                     merge_num_dict[num][0] = 1

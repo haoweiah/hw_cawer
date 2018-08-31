@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86d67dd9-698a-4423-aeee-e5f535dd9c9a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/mysplit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acrn_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/acrn_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myrequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/myrequest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysmail.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +20,8 @@
       <file leaf-file-name="acrn_request.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acrn_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
+            <state relative-caret-position="2149">
+              <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
               </folding>
@@ -29,8 +32,8 @@
       <file leaf-file-name="pulls.json" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/pulls.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="79" column="16" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="16" />
+            <state relative-caret-position="120">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="13" />
               <folding>
                 <element signature="e#651#1720#0" />
                 <element signature="e#2066#3161#0" />
@@ -44,44 +47,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myapp.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myapp.log">
+      <file leaf-file-name="mysplit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysplit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="num_dict.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/num_dict.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="184" selection-start-column="184" selection-end-column="184" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="acrn-request.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/acrn-request.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2544">
-              <caret line="107" column="28" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
-              <folding>
-                <element signature="e#22#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myrequest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myrequest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="38" />
+            <state relative-caret-position="504">
+              <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysmail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysmail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -149,16 +131,17 @@
         <option value="$PROJECT_DIR$/review.json" />
         <option value="$PROJECT_DIR$/acrn_pulls.json" />
         <option value="$PROJECT_DIR$/acrn-request.py" />
-        <option value="$PROJECT_DIR$/mysmail.py" />
         <option value="$PROJECT_DIR$/num_dict.json" />
         <option value="$PROJECT_DIR$/myrequest.py" />
+        <option value="$PROJECT_DIR$/mysplit.py" />
+        <option value="$PROJECT_DIR$/mysmail.py" />
         <option value="$PROJECT_DIR$/acrn_request.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="646" />
-    <option name="y" value="154" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="886" />
+    <option name="y" value="32" />
     <option name="width" value="928" />
     <option name="height" value="1048" />
   </component>
@@ -205,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.acrn_request">
+  <component name="RunManager" selected="Python.mysmail">
     <configuration name="acrn-request" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hw_cawer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -237,24 +220,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/acrn_request.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="carn_request" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="hw_cawer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/carn_request.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -296,20 +261,38 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="mysplit" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hw_cawer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysplit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
-      <item itemvalue="Python.carn_request" />
       <item itemvalue="Python.acrn-request" />
       <item itemvalue="Python.acrn_request" />
       <item itemvalue="Python.mysmail" />
       <item itemvalue="Python.myrequest" />
+      <item itemvalue="Python.mysplit" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.mysmail" />
+        <item itemvalue="Python.mysplit" />
         <item itemvalue="Python.acrn_request" />
         <item itemvalue="Python.myrequest" />
-        <item itemvalue="Python.mysmail" />
         <item itemvalue="Python.acrn-request" />
-        <item itemvalue="Python.carn_request" />
       </list>
     </recent_temporary>
   </component>
@@ -344,16 +327,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.27128822" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2701965" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988358" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843652" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.33633295" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.08604407" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37250787" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.35027623" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32843652" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -394,15 +377,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysplit.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysplit.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pachong/01-doubanmovielist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pachong/01-doubanmovielist2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-576" />
@@ -567,13 +557,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/review.json" />
-    <entry file="file://$PROJECT_DIR$/mysmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.5/operator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-648">
@@ -596,33 +579,10 @@
     <entry file="file://$PROJECT_DIR$/pulls.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/pulls.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="79" column="16" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="16" />
-          <folding>
-            <element signature="e#651#1720#0" />
-            <element signature="e#2066#3161#0" />
-            <element signature="e#3224#3500#0" />
-            <element signature="e#20313#39695#0" />
-            <element signature="e#39699#58415#0" />
-            <element signature="e#58419#77768#0" />
-            <element signature="e#77772#97022#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jianlai_commit.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="610">
           <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myapp.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -640,23 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/num_dict.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="184" selection-start-column="184" selection-end-column="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myrequest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my_selenium.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -671,10 +614,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myrequest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/num_dict.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="184" selection-start-column="184" selection-end-column="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysplit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/pulls.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#651#1720#0" />
+            <element signature="e#2066#3161#0" />
+            <element signature="e#3224#3500#0" />
+            <element signature="e#20313#39695#0" />
+            <element signature="e#39699#58415#0" />
+            <element signature="e#58419#77768#0" />
+            <element signature="e#77772#97022#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/acrn_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
+        <state relative-caret-position="2149">
+          <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>
