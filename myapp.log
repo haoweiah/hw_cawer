@@ -103,3 +103,24 @@ Fri, 31 Aug 2018 15:17:15 acrn_request.py[line:122] INFO 找到mail发邮件
 Fri, 31 Aug 2018 15:17:17 acrn_request.py[line:122] INFO 找到mail发邮件
 Fri, 31 Aug 2018 15:17:17 acrn_request.py[line:194] INFO merge_num_list [1100, 1109, 1112, 1113]
 Fri, 31 Aug 2018 15:17:17 acrn_request.py[line:195] INFO read_num_list [1100, 1109, 1112, 1113]
+Mon, 03 Sep 2018 14:02:34 acrn_request.py[line:152] INFO check-on OK
+Mon, 03 Sep 2018 14:02:36 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:02:37 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:02:40 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:07:18 acrn_request.py[line:152] INFO check-on OK
+Mon, 03 Sep 2018 14:07:20 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:07:21 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:07:25 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:13:50 acrn_request.py[line:152] INFO check-on OK
+Mon, 03 Sep 2018 14:13:52 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:13:55 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:13:58 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:17:35 acrn_request.py[line:152] INFO check-on OK
+Mon, 03 Sep 2018 14:17:36 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:17:38 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:17:40 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:17:42 acrn_request.py[line:119] INFO 找到mail发邮件
+Mon, 03 Sep 2018 14:17:42 acrn_request.py[line:202] INFO merge_num_list [1113, 1129]
+Mon, 03 Sep 2018 14:17:42 acrn_request.py[line:203] INFO read_num_list [1100, 1109, 1112, 1113]
+Mon, 03 Sep 2018 14:17:42 acrn_request.py[line:206] INFO 可以rebase编号：[1113, 1129]
+Mon, 03 Sep 2018 14:17:43 acrn_request.py[line:220] INFO 修改成功

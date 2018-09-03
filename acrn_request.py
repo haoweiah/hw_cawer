@@ -92,7 +92,7 @@ class ProjectacrnPullRequest(object):
                 if file_type != 'doc':
                     return True
         except Exception as e:
-            logging.info(e)
+            logging.info('%s' % e)
         else:
             return False
 
@@ -103,22 +103,22 @@ class ProjectacrnPullRequest(object):
             me_list = re.findall(r'Tracked-On: #(\d+)', message)
             mail = re.findall(r'Signed-off-by:.*?<(.*?@.*?)>', message)
         except Exception as e:
-            logging.error('commit链接获取错误', e)
+            logging.error('commit链接获取错误 %s' % e)
             return False
         if not me_list:
             # 没有TrackOn信息
             if not mail:
                 # commit中没有邮件联系人
                 logging.info('%s 未找到mail 邮件发给谁' % num)
-                subject = 'Tracked-on information was not found for PR %d' % num
+                subject = 'Waring: NO Tracked-On for PR %d' % num
                 content = 'No contact found for PR %d, No Tracken-On information, link: %s' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content)
             else:
                 # 没有TrackOn但有联系人发送邮件
                 logging.info('找到mail发邮件')
-                subject = 'Not PR %d found Tracken-On information' % num
-                content = 'Warning:No "Tracked-On" info in %s link: %s please add it' % (num, html_url)
+                subject = 'Warning: No Tracken-On information in %d PR' % num
+                content = 'Warning: No "Tracked-On" info in %s PATH: %s please add it' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content, mail)
             return False
@@ -136,7 +136,7 @@ class ProjectacrnPullRequest(object):
                 ext_list = re.findall(r'\[External_System_ID\]', ID)
             if not ext_list:
                 logging.info('%s未找到ID发邮件 需要发送给5个人' % num)
-                subject = 'git issues'
+                subject = 'Waring: No External_System-ID'
                 content = "PR%s`s issues %s External_System_ID was not found in the issues of PR link: %s" % (num,
                                                                                                               issues_num,
                                                                                                               html_url)
@@ -144,12 +144,12 @@ class ProjectacrnPullRequest(object):
                 return False
         except Exception as e:
             logging.error('issuers链接错误发邮件 需要发送给5个人 %s' % e)
-            subject = 'issues link error'
-            content = 'issues link error %s, maybe Tracken-On infomation error' % issues_url
+            subject = 'Git Issue link error'
+            content = 'Git Issue link error %s, maybe Tracken-On infomation error' % issues_url
             self.send_email(subject, content)
             return False
         else:
-            logging.info('checkon OK')
+            logging.info('check-on OK')
             return True
 
     def projectcarn_merge_rebase(self):
@@ -158,27 +158,31 @@ class ProjectacrnPullRequest(object):
         merge_num_dict = {}
         trackon_dict = {}
         pulls_json = self.acrn_url_info(self.base_url)
-        merge_url = pulls_json[0]['base']['repo']['merges_url']
-        for i in range(0, len(pulls_json)):
-            head = pulls_json[i]['head']['sha']
-            base = pulls_json[i]['base']['ref']
-            commits_url = pulls_json[i]['commits_url']
-            num_url = pulls_json[i]['url']
-            num = pulls_json[i]['number']
-            merable = pulls_json[i]['mergeable']
-            rebaseable = pulls_json[i]['rebaseable']
-            comment_url = pulls_json[i]['comments_url']
-            statuses_url = pulls_json[i]['statuses_url']
-            review_url = pulls_json[i]['url'] + '/reviews'
-            html_url = pulls_json[i]['html_url']
+        # merge_url = pulls_json[0]['base']['repo']['merges_url']
+        for pull_json in pulls_json:
+            head = pull_json['head']['sha']
+            base = pull_json['base']['ref']
+            commits_url = pull_json['commits_url']
+            num_url = pull_json['url']
+            num = pull_json['number']
+            comment_url = pull_json['comments_url']
+            statuses_url = pull_json['statuses_url']
+            per_mail_url = pull_json['head']['repo']['url']
+            review_url = pull_json['url'] + '/reviews'
+            html_url = pull_json['html_url']
             if self.determine_doc(num):
                 if self.TrackenOn(num, commits_url, html_url):
                     trackon_dict[num] = num_url
-                if not (merable and rebaseable):
+                rebaseable = self.acrn_url_info(num_url)['rebaseable']
+                if not rebaseable:
                     # 发送邮件： 代码没有合并的
-                    subject = ""
-                    content = ""
-                    self.send_email(subject, content)
+                    rebase_list = []
+                    master_data = self.acrn_url_info(per_mail_url+'/branches/master')
+                    email = master_data['commit']['commit']['author']['email']
+                    rebase_list.append(email)
+                    subject = "Warning: Has conflicts,please resolve"
+                    content = "Warning: Has conflicts, need resolved,%d PATH:%s " % (num, num_url)
+                    self.send_email(subject, content, rebase_list)
                     continue
                 review_json = self.acrn_url_info(review_url)
                 for review in review_json:
@@ -191,18 +195,18 @@ class ProjectacrnPullRequest(object):
         merge_num_list = sorted(merge_num_dict.keys())
         read_num_list = sorted(read_num_dict.keys())
         ok_merge = list(set(merge_num_list) & set(sorted(trackon_dict.keys())))
-        ok_no_trackon = list(set(merge_num_list) - set(sorted(trackon_dict.keys())))
+        # ok_no_trackon = list(set(merge_num_list) - set(sorted(trackon_dict.keys())))
         ok_merge_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_merge}
-        ok_no_trackon_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_no_trackon}
+        # ok_no_trackon_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_no_trackon}
         logging.info('merge_num_list %s' % merge_num_list)
         logging.info('read_num_list %s' % read_num_list)
         if not operator.eq(read_num_list, merge_num_list):
             # 使用operator判断两个列表是否相同
             logging.info("可以rebase编号：%s" % merge_num_list)
             # 发送邮件：可以merge的PR列表
-            subject = 'need merge Pull request'
-            content = 'PR can merge list %s PR merge don`t have trackon %s' % (
-                json.dumps(ok_merge_dict), json.dumps(ok_no_trackon_dict))
+            subject = 'Need merge PRs'
+            content = 'PR can merge list:\n %s' % (
+                json.dumps(ok_merge_dict))
             self.send_email(subject, content)
             for num, me_list in merge_num_dict.items():
                 if num in read_num_list:
@@ -213,7 +217,7 @@ class ProjectacrnPullRequest(object):
                     merge_num_dict[num][0] = 1
                     body = "修改成功" if status_code == 201 else "修改失败"
                     logging.info(body)
-            self.write_file(ok_merge_dict)
+            self.write_file(merge_num_dict)
 
 
 if __name__ == '__main__':
