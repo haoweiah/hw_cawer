@@ -4,8 +4,6 @@
     <list default="true" id="86d67dd9-698a-4423-aeee-e5f535dd9c9a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acrn_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/acrn_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp.log" beforeDir="false" afterPath="$PROJECT_DIR$/myapp.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/num_dict.json" beforeDir="false" afterPath="$PROJECT_DIR$/num_dict.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +17,25 @@
       <file leaf-file-name="acrn_request.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acrn_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-971">
-              <caret line="134" column="28" lean-forward="true" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+            <state relative-caret-position="-1567">
+              <caret line="139" column="100" selection-start-line="139" selection-start-column="100" selection-end-line="139" selection-end-column="100" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1113pull.json" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/1113pull.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3816">
+              <caret line="178" column="31" selection-start-line="178" selection-start-column="25" selection-end-line="178" selection-end-column="31" />
+              <folding>
+                <element signature="n#!!block;n#user#0;n#!!top" />
+                <element signature="n#!!block;n#base#0;n#!!top" />
+                <element signature="n#!!block;n#_links#0;n#!!top" />
+                <element signature="n#!!block;n#self#0;n#!!block;n#_links#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -31,19 +44,8 @@
       <file leaf-file-name="pulls.json" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/pulls.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-              <folding>
-                <element signature="e#651#1720#0" />
-                <element signature="e#2066#3161#0" />
-                <element signature="e#3224#3500#0" />
-                <element signature="e#11667#12818#0" />
-                <element signature="e#13020#14209#0" />
-                <element signature="e#20313#39695#0" />
-                <element signature="e#39699#58415#0" />
-                <element signature="e#58419#77768#0" />
-                <element signature="e#77772#97022#0" />
-              </folding>
+            <state relative-caret-position="3504">
+              <caret line="146" column="15" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -51,7 +53,7 @@
       <file leaf-file-name="mysplit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysplit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="480">
               <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -63,8 +65,8 @@
       <file leaf-file-name="mysmail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysmail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="768">
+              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -102,8 +104,11 @@
       <find>message</find>
       <find>format</find>
       <find>list</find>
-      <find>branch</find>
       <find>owner</find>
+      <find>branch</find>
+      <find>mergeable</find>
+      <find>master</find>
+      <find>resolved</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -146,9 +151,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="89" />
-    <option name="y" value="-8" />
-    <option name="width" value="992" />
-    <option name="height" value="876" />
+    <option name="y" value="34" />
+    <option name="width" value="1734" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -157,20 +162,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="hw_cawer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hw_cawer" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -326,7 +318,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535683570401</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加可以rebase判断">
+      <created>1535943819498</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535943819498</updated>
+    </task>
+    <task id="LOCAL-00004" summary="添加可以rebase判断,后发送给没有merge代码的人">
+      <created>1535955738562</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1535955738562</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -339,19 +345,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2701965" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988358" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.33578175" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37250787" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.32528856" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.35027623" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32843652" />
-      <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3976915" />
+      <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -363,21 +369,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.22063667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988358" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32988358" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36216217" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32988358" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32858992" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32988358" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32988358" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -386,7 +392,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="删除了很多文件" />
     <MESSAGE value="修改了发送内容为英文，邮件添加链接" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了发送内容为英文，邮件添加链接" />
+    <MESSAGE value="添加可以rebase判断" />
+    <MESSAGE value="添加可以rebase判断,后发送给没有merge代码的人" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加可以rebase判断,后发送给没有merge代码的人" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -406,7 +414,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pachong/01-seleniumbaseuse.py" />
     <entry file="file://$PROJECT_DIR$/pachong/02-fanyibaidu.py" />
     <entry file="file://$PROJECT_DIR$/pachong/04-pyocr.py" />
     <entry file="file://$PROJECT_DIR$/pachong/04doubanbs4.py" />
@@ -501,16 +508,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysplit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="480">
           <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -518,28 +518,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/1113pull.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3816">
+          <caret line="178" column="31" selection-start-line="178" selection-start-column="25" selection-end-line="178" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!block;n#user#0;n#!!top" />
+            <element signature="n#!!block;n#base#0;n#!!top" />
+            <element signature="n#!!block;n#_links#0;n#!!top" />
+            <element signature="n#!!block;n#self#0;n#!!block;n#_links#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/pulls.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-          <folding>
-            <element signature="e#651#1720#0" />
-            <element signature="e#2066#3161#0" />
-            <element signature="e#3224#3500#0" />
-            <element signature="e#11667#12818#0" />
-            <element signature="e#13020#14209#0" />
-            <element signature="e#20313#39695#0" />
-            <element signature="e#39699#58415#0" />
-            <element signature="e#58419#77768#0" />
-            <element signature="e#77772#97022#0" />
-          </folding>
+        <state relative-caret-position="3504">
+          <caret line="146" column="15" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/acrn_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-971">
-          <caret line="134" column="28" lean-forward="true" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+        <state relative-caret-position="-1567">
+          <caret line="139" column="100" selection-start-line="139" selection-start-column="100" selection-end-line="139" selection-end-column="100" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>

@@ -111,14 +111,14 @@ class ProjectacrnPullRequest(object):
                 # commit中没有邮件联系人
                 logging.info('%s 未找到mail 邮件发给谁' % num)
                 subject = 'Waring: NO Tracked-On for PR %d' % num
-                content = 'No contact found for PR %d, No Tracken-On information, link: %s' % (num, html_url)
+                content = 'No contact found for PR %d, No Tracken-On information, \n link: %s' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content)
             else:
                 # 没有TrackOn但有联系人发送邮件
                 logging.info('找到mail发邮件')
-                subject = 'Warning: No Tracken-On information in %d PR' % num
-                content = 'Warning: No "Tracked-On" info in %s PATH: %s please add it' % (num, html_url)
+                subject = 'Warning: No Tracked-On information in %d PR' % num
+                content = 'Warning: No "Tracked-On" info in %s \n PATH: %s please add it' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content, mail)
             return False
@@ -137,7 +137,7 @@ class ProjectacrnPullRequest(object):
             if not ext_list:
                 logging.info('%s未找到ID发邮件 需要发送给5个人' % num)
                 subject = 'Waring: No External_System-ID'
-                content = "PR%s`s issues %s External_System_ID was not found in the issues of PR link: %s" % (num,
+                content = "PR%s`s issues %s External_System_ID was not found in the issues of PR \n link: %s" % (num,
                                                                                                               issues_num,
                                                                                                               html_url)
                 self.send_email(subject, content)
@@ -175,14 +175,14 @@ class ProjectacrnPullRequest(object):
                     trackon_dict[num] = num_url
                 rebaseable = self.acrn_url_info(num_url)['rebaseable']
                 if not rebaseable:
-                    # 发送邮件： 代码没有合并的
-                    rebase_list = []
-                    master_data = self.acrn_url_info(per_mail_url+'/branches/master')
-                    email = master_data['commit']['commit']['author']['email']
-                    rebase_list.append(email)
-                    subject = "Warning: Has conflicts,please resolve"
-                    content = "Warning: Has conflicts, need resolved,%d PATH:%s " % (num, num_url)
-                    self.send_email(subject, content, rebase_list)
+                    # 发送邮件： 代码没有合并的(因为人名和email查找出错暂时搁置)
+                    # rebase_list = []
+                    # master_data = self.acrn_url_info(per_mail_url+'/branches/master')
+                    # email = master_data['commit']['commit']['author']['email']
+                    # rebase_list.append(email)
+                    # subject = "Warning: Has conflicts,please resolve"
+                    # content = "Warning: Has conflicts, need resolved,%d PATH: %s " % (num, num_url)
+                    # self.send_email(subject, content, rebase_list)
                     continue
                 review_json = self.acrn_url_info(review_url)
                 for review in review_json:
@@ -197,8 +197,9 @@ class ProjectacrnPullRequest(object):
         ok_merge = list(set(merge_num_list) & set(sorted(trackon_dict.keys())))
         # ok_no_trackon = list(set(merge_num_list) - set(sorted(trackon_dict.keys())))
         ok_merge_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_merge}
+        ok_merge_num_dict = {x: y for x, y in merge_num_dict.items() if x in ok_merge}
         # ok_no_trackon_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_no_trackon}
-        logging.info('merge_num_list %s' % merge_num_list)
+        logging.info('ok_merge_list %s' % ok_merge)
         logging.info('read_num_list %s' % read_num_list)
         if not operator.eq(read_num_list, merge_num_list):
             # 使用operator判断两个列表是否相同
@@ -207,17 +208,18 @@ class ProjectacrnPullRequest(object):
             subject = 'Need merge PRs'
             content = 'PR can merge list:\n %s' % (
                 json.dumps(ok_merge_dict))
-            self.send_email(subject, content)
-            for num, me_list in merge_num_dict.items():
+            if ok_merge_dict:
+                self.send_email(subject, content)
+            for num, me_list in ok_merge_num_dict.items():
                 if num in read_num_list:
-                    merge_num_dict[num][0] = 1
+                    ok_merge_num_dict[num][0] = 1
                     me_list[0] = 1
                 if me_list[0] == 0:
                     status_code = self.post_comments(me_list[1])
-                    merge_num_dict[num][0] = 1
+                    ok_merge_num_dict[num][0] = 1
                     body = "修改成功" if status_code == 201 else "修改失败"
                     logging.info(body)
-            self.write_file(merge_num_dict)
+            self.write_file(ok_merge_num_dict)
 
 
 if __name__ == '__main__':
