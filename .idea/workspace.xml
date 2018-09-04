@@ -17,8 +17,8 @@
       <file leaf-file-name="acrn_request.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acrn_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1567">
-              <caret line="139" column="100" selection-start-line="139" selection-start-column="100" selection-end-line="139" selection-end-column="100" />
+            <state relative-caret-position="2317">
+              <caret line="208" column="50" lean-forward="true" selection-start-line="208" selection-start-column="50" selection-end-line="208" selection-end-column="50" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
               </folding>
@@ -109,6 +109,7 @@
       <find>mergeable</find>
       <find>master</find>
       <find>resolved</find>
+      <find>\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -332,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535955738562</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="发送给需要merge代码人邮件有些问题先注释">
+      <created>1536026067991</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1536026067991</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -345,7 +353,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2701965" />
@@ -353,7 +361,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37250787" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32988358" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.32528856" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32528856" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.35027623" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32843652" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3976915" />
@@ -394,7 +402,8 @@
     <MESSAGE value="修改了发送内容为英文，邮件添加链接" />
     <MESSAGE value="添加可以rebase判断" />
     <MESSAGE value="添加可以rebase判断,后发送给没有merge代码的人" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加可以rebase判断,后发送给没有merge代码的人" />
+    <MESSAGE value="发送给需要merge代码人邮件有些问题先注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="发送给需要merge代码人邮件有些问题先注释" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -547,8 +556,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/acrn_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1567">
-          <caret line="139" column="100" selection-start-line="139" selection-start-column="100" selection-end-line="139" selection-end-column="100" />
+        <state relative-caret-position="2317">
+          <caret line="208" column="50" lean-forward="true" selection-start-line="208" selection-start-column="50" selection-end-line="208" selection-end-column="50" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>

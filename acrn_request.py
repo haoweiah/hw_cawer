@@ -111,14 +111,14 @@ class ProjectacrnPullRequest(object):
                 # commit中没有邮件联系人
                 logging.info('%s 未找到mail 邮件发给谁' % num)
                 subject = 'Waring: NO Tracked-On for PR %d' % num
-                content = 'No contact found for PR %d, No Tracken-On information, \n link: %s' % (num, html_url)
+                content = 'No contact found for PR %d, No Tracken-On information, \nlink: %s' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content)
             else:
                 # 没有TrackOn但有联系人发送邮件
                 logging.info('找到mail发邮件')
                 subject = 'Warning: No Tracked-On information in %d PR' % num
-                content = 'Warning: No "Tracked-On" info in %s \n PATH: %s please add it' % (num, html_url)
+                content = 'Warning: No "Tracked-On" info in %s \nPATH: %s please add it' % (num, html_url)
                 mail.append('minxia.wang@intel.com')
                 self.send_email(subject, content, mail)
             return False
@@ -137,7 +137,7 @@ class ProjectacrnPullRequest(object):
             if not ext_list:
                 logging.info('%s未找到ID发邮件 需要发送给5个人' % num)
                 subject = 'Waring: No External_System-ID'
-                content = "PR%s`s issues %s External_System_ID was not found in the issues of PR \n link: %s" % (num,
+                content = "PR%s`s issues %s External_System_ID was not found in the issues of PR \nlink: %s" % (num,
                                                                                                               issues_num,
                                                                                                               html_url)
                 self.send_email(subject, content)
@@ -190,7 +190,7 @@ class ProjectacrnPullRequest(object):
                     if review.get('state') == "APPROVED" and (user == "anthonyzxu" or user == "dongyaozu"):
                         check_json = self.acrn_url_info(statuses_url)
                         if check_json[0]['state'] == 'success':
-                            merge_num_dict[num] = [0, comment_url, num_url]
+                            merge_num_dict[num] = [0, comment_url, html_url]
 
         merge_num_list = sorted(merge_num_dict.keys())
         read_num_list = sorted(read_num_dict.keys())
@@ -206,7 +206,7 @@ class ProjectacrnPullRequest(object):
             logging.info("可以rebase编号：%s" % merge_num_list)
             # 发送邮件：可以merge的PR列表
             subject = 'Need merge PRs'
-            content = 'PR can merge list:\n %s' % (
+            content = 'PR can merge list:\n%s' % (
                 json.dumps(ok_merge_dict))
             if ok_merge_dict:
                 self.send_email(subject, content)
