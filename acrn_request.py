@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO,
                     )
 console = logging.StreamHandler()
 console.setLevel(logging.INFO)
-formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+formatter = logging.Formatter('%(name)-8s: %(levelname)-4s %(message)s')
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
@@ -26,8 +26,7 @@ logging.getLogger('').addHandler(console)
 class ProjectacrnPullRequest(object):
 
     def __init__(self, username, userpwd):
-        self.base_url = 'https://api.github.com/repos/projectacrn/acrn-hypervisor/pulls'
-        self.url = ''
+        self.base_url = ''
         self.s = requests.Session()
         self.s.auth = HTTPBasicAuth(username, userpwd)
 
@@ -70,21 +69,23 @@ class ProjectacrnPullRequest(object):
     def read_file(self):
         # 读取保存本地的字典文件（以后可以修改为读取数据库）
         try:
-            with open('num_dict.json', 'r') as f:
+            merge_dict_path = 'hynum_dict.json' if 'hypervisor' in self.base_url else 'kenum_dict.json'
+            with open(merge_dict_path, 'r') as f:
                 merge_num = f.read()
             return eval(merge_num)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             return {}
 
     def write_file(self, num_list):
         # 保存到本地字典文件 （以后可以保存到数据库）
-        with open('num_dict.json', 'w') as f:
+        merge_dict_path = 'hynum_dict.json' if 'hypervisor' in self.base_url else 'kenum_dict.json'
+        with open(merge_dict_path, 'w') as f:
             f.write(str(num_list))
 
     def determine_doc(self, num):
         # 检查commit的文件是否为doc文档文件
         # 需求：文件不全为doc返回True
-        url = 'https://api.github.com/repos/projectacrn/acrn-hypervisor/pulls/%s/files' % num
+        url = self.base_url + '/pulls/%s/files' % num
         try:
             file_list = self.acrn_url_info(url)
             for file in file_list:
@@ -103,7 +104,7 @@ class ProjectacrnPullRequest(object):
             me_list = re.findall(r'Tracked-On: #(\d+)', message)
             mail = re.findall(r'Signed-off-by:.*?<(.*?@.*?)>', message)
         except Exception as e:
-            logging.error('commit链接获取错误 %s' % e)
+            logging.error('commit %d 链接获取错误 %s' % (num, e))
             return False
         if not me_list:
             # 没有TrackOn信息
@@ -123,7 +124,7 @@ class ProjectacrnPullRequest(object):
                 self.send_email(subject, content, mail)
             return False
         issues_num = int(me_list[0])
-        issues_url = "https://api.github.com/repos/projectacrn/acrn-hypervisor/issues/%d/comments" % issues_num
+        issues_url = self.base_url + "/issues/%d/comments" % issues_num
         try:
             # 有TranckOn查看相关链接
             ext_list = []
@@ -138,8 +139,8 @@ class ProjectacrnPullRequest(object):
                 logging.info('%s未找到ID发邮件 需要发送给5个人' % num)
                 subject = 'Waring: No External_System-ID'
                 content = "PR%s`s issues %s External_System_ID was not found in the issues of PR \nlink: %s" % (num,
-                                                                                                              issues_num,
-                                                                                                              html_url)
+                                                                                                                issues_num,
+                                                                                                                html_url)
                 self.send_email(subject, content)
                 return False
         except Exception as e:
@@ -149,7 +150,7 @@ class ProjectacrnPullRequest(object):
             self.send_email(subject, content)
             return False
         else:
-            logging.info('check-on OK')
+            logging.info('%d check-on OK' % num)
             return True
 
     def projectcarn_merge_rebase(self):
@@ -157,7 +158,7 @@ class ProjectacrnPullRequest(object):
         read_num_dict = self.read_file()
         merge_num_dict = {}
         trackon_dict = {}
-        pulls_json = self.acrn_url_info(self.base_url)
+        pulls_json = self.acrn_url_info(self.base_url + '/pulls')
         # merge_url = pulls_json[0]['base']['repo']['merges_url']
         for pull_json in pulls_json:
             head = pull_json['head']['sha']
@@ -175,19 +176,16 @@ class ProjectacrnPullRequest(object):
                     trackon_dict[num] = num_url
                 rebaseable = self.acrn_url_info(num_url)['rebaseable']
                 if not rebaseable:
-                    # 发送邮件： 代码没有合并的(因为人名和email查找出错暂时搁置)
-                    # rebase_list = []
-                    # master_data = self.acrn_url_info(per_mail_url+'/branches/master')
-                    # email = master_data['commit']['commit']['author']['email']
-                    # rebase_list.append(email)
-                    # subject = "Warning: Has conflicts,please resolve"
-                    # content = "Warning: Has conflicts, need resolved,%d PATH: %s " % (num, num_url)
-                    # self.send_email(subject, content, rebase_list)
                     continue
                 review_json = self.acrn_url_info(review_url)
                 for review in review_json:
                     user = review["user"]["login"]
-                    if review.get('state') == "APPROVED" and (user == "anthonyzxu" or user == "dongyaozu"):
+                    print(user)
+                    print(self.base_url)
+                    user_type = (user == "anthonyzxu" or user == "dongyaozu") if 'hypervisor' in self.base_url else (
+                                user == 'yakuizhao')
+                    print(user_type)
+                    if review.get('state') == "APPROVED" and user_type:
                         check_json = self.acrn_url_info(statuses_url)
                         if check_json[0]['state'] == 'success':
                             merge_num_dict[num] = [0, comment_url, html_url]
@@ -195,10 +193,8 @@ class ProjectacrnPullRequest(object):
         merge_num_list = sorted(merge_num_dict.keys())
         read_num_list = sorted(read_num_dict.keys())
         ok_merge = list(set(merge_num_list) & set(sorted(trackon_dict.keys())))
-        # ok_no_trackon = list(set(merge_num_list) - set(sorted(trackon_dict.keys())))
         ok_merge_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_merge}
         ok_merge_num_dict = {x: y for x, y in merge_num_dict.items() if x in ok_merge}
-        # ok_no_trackon_dict = {x: y[2] for x, y in merge_num_dict.items() if x in ok_no_trackon}
         logging.info('ok_merge_list %s' % ok_merge)
         logging.info('read_num_list %s' % read_num_list)
         if not operator.eq(read_num_list, merge_num_list):
@@ -219,9 +215,14 @@ class ProjectacrnPullRequest(object):
                     ok_merge_num_dict[num][0] = 1
                     body = "修改成功" if status_code == 201 else "修改失败"
                     logging.info(body)
-            self.write_file(ok_merge_num_dict)
+            if ok_merge_num_dict:
+                self.write_file(ok_merge_num_dict)
 
 
 if __name__ == '__main__':
+    url = ['https://api.github.com/repos/projectacrn/acrn-hypervisor',
+           'https://api.github.com/repos/projectacrn/acrn-kernel']
     projectacrn_pullrequest = ProjectacrnPullRequest('hw121298@163.com', 'hw!QAZ2wsx')
-    projectacrn_pullrequest.projectcarn_merge_rebase()
+    for base_rul in url:
+        projectacrn_pullrequest.base_url = base_rul
+        projectacrn_pullrequest.projectcarn_merge_rebase()
