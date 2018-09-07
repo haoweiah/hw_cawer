@@ -101,7 +101,7 @@ class ProjectacrnPullRequest(object):
         # 检查是否TrackOn
         try:
             message = self.acrn_url_info(commit_url)[0]['commit']['message']
-            me_list = re.findall(r'Tracked-On: #(\d+)', message)
+            me_list = re.findall(r'Tracked-On:.*?#(\d+)', message)
             mail = re.findall(r'Signed-off-by:.*?<(.*?@.*?)>', message)
         except Exception as e:
             logging.error('commit %d 链接获取错误 %s' % (num, e))
@@ -180,11 +180,8 @@ class ProjectacrnPullRequest(object):
                 review_json = self.acrn_url_info(review_url)
                 for review in review_json:
                     user = review["user"]["login"]
-                    print(user)
-                    print(self.base_url)
                     user_type = (user == "anthonyzxu" or user == "dongyaozu") if 'hypervisor' in self.base_url else (
                                 user == 'yakuizhao')
-                    print(user_type)
                     if review.get('state') == "APPROVED" and user_type:
                         check_json = self.acrn_url_info(statuses_url)
                         if check_json[0]['state'] == 'success':
@@ -199,7 +196,7 @@ class ProjectacrnPullRequest(object):
         logging.info('read_num_list %s' % read_num_list)
         if not operator.eq(read_num_list, merge_num_list):
             # 使用operator判断两个列表是否相同
-            logging.info("可以rebase编号：%s" % merge_num_list)
+            logging.info("可以rebase编号：%s" % ok_merge)
             # 发送邮件：可以merge的PR列表
             subject = 'Need merge PRs'
             content = 'PR can merge list:\n%s' % (

@@ -22,7 +22,7 @@ logging.getLogger('').addHandler(console)
 class ProjectacrnPullRequest(object):
 
     def __init__(self, username, userpwd):
-        self.base_url = 'https://api.github.com/repos/projectacrn/acrn-hypervisor/pulls'
+        self.base_url = ''
         self.url = ''
         self.s = requests.Session()
         self.s.auth = HTTPBasicAuth(username, userpwd)
@@ -70,8 +70,8 @@ class ProjectacrnPullRequest(object):
         for url in close_url:
             while 1:
                 page += 1
-                # response = self.s.get(url, params={"state": "all", "page": page})
-                response = self.s.get(url)
+                response = self.s.get(url, params={"state": "all", "page": page})
+                # response = self.s.get(url)
                 pulls_json = json.loads(response.text)
                 lenth_pulls += len(pulls_json)
                 if not pulls_json:
@@ -80,9 +80,8 @@ class ProjectacrnPullRequest(object):
                     commits_url = pull_json['commits_url']
                     mail = self.searchmail(commits_url)
                     print(mail)
-                    if mail is not None:
+                    if mail:
                         sql_mail[mail['email']] = mail['name']
-                break
             print(lenth_pulls)
             self.sql_handle(sql_mail)
 
